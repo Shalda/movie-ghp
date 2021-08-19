@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+input:active, input:hover, input:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+[disabled] {
+  cursor: not-allowed;
+}
+
+.form_btn {
+  display: inline-block;
+  border: 1px solid rgb(99, 99, 99);
+  border-radius: 2px;
+  padding: 10px;
+  color: rgb(99, 99, 99);
+  transition: background-color .3s, color .3s;
+  width: 25%;
+}
+
+.form_btn:hover:not([disabled]) {
+  background-color: rgb(99, 99, 99);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
