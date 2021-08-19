@@ -1,0 +1,131 @@
+.movie_card_container {
+  box-sizing: border-box;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(69, 69, 69, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.movie_card {
+  border-radius: 2px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #494949;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 20px;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    'title title poster poster poster'
+    'rating year poster poster poster'
+    'genre runtime poster poster poster'
+    'director actors poster poster poster'
+    'description description poster poster poster'
+    'description description poster poster poster'
+    'description description poster poster poster'
+    'description description poster poster poster'
+    'description description poster poster poster'
+    'description description poster poster poster'
+}
+
+.movie_card div {
+  border: 1px solid #ffffff;
+  padding: 1.2rem;
+}
+
+.movie_card_title {
+  grid-area: title;
+  text-align: center;
+}
+
+.movie_card .movie_card_img {
+  padding: 0;
+  grid-area: poster;
+  overflow: hidden;
+  position: relative;
+  background-image: url("/assets/img/logo.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  img {
+   object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.movie_card_year {
+  grid-area: year;
+}
+
+.movie_card_runtime {
+  grid-area: runtime;
+}
+
+.movie_card_genre {
+  grid-area: genre;
+}
+
+.movie_card_rating {
+  grid-area: rating;
+}
+
+.movie_card_actors {
+  grid-area: actors;
+}
+
+.movie_card_director {
+  grid-area: director;
+}
+
+.movie_card_description {
+  grid-area: description
+}
+
+@media screen and (max-width: 1124px) {
+  .movie_card {
+    grid-gap: 0.2rem;
+    height: 70vh;
+    width: 90vw;
+    grid-template-areas:
+    'title title title title title'
+    'rating year poster poster poster'
+    'genre runtime poster poster poster'
+    'director actors actors actors actors'
+    'description description description description description'
+    'description description description description description'
+    'description description description description description'
+    'description description description description description'
+    'description description description description description'
+    'description description description description description'
+  }
+
+}
+
+@media screen and (max-width: 756px) {
+  .movie_card {
+    height: 80vh;
+    grid-template-areas:
+    'title title title title title'
+    'poster poster poster poster poster'
+    'rating rating rating year year'
+    'genre genre genre runtime runtime'
+    'director actors actors actors actors'
+    'description description description description description'
+  }
+  .movie_card div {
+    border: 1px solid #ffffff;
+    padding: 0.2rem;
+    font-size: .8rem;
+  }
+
+}
+

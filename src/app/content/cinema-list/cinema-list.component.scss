@@ -1,0 +1,114 @@
+.list_wrapper {
+  margin-top: 20px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.movie-box {
+  box-sizing: border-box;
+  width: 23%;
+  height: 38vh;
+  border: 1px solid #ffffff;
+  text-align: center;
+  position: relative;
+  float: left;
+  margin: 1%;
+  cursor: pointer;
+  overflow: hidden;
+  background-image: url("/assets/img/logo.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+#movie_text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+#movie-box:hover #movie_text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(69, 69, 69, 0.8);
+}
+
+#movie_text button {
+  margin: 0 5px 5px;
+  width: 45%;
+  height: auto;
+  padding: 5px;
+  font-size: 0.8rem;
+}
+
+.loader {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+button {
+  display: block;
+  margin-left: 1%;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  color: white;
+  background-color: rgb(99, 99, 99);
+  transition: background-color .3s, color .3s;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: rgb(99, 99, 99);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .movie-box {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-box {
+    width: 48%;
+    height: 45vh;
+  }
+  .add_button {
+    margin-bottom: 20px;
+
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .movie-box {
+    height: 35vh;
+  }
+}
+
+
+

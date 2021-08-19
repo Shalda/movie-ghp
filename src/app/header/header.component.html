@@ -1,0 +1,15 @@
+<header class="container">
+  <div (click)="onGoHome()" class="logo_container">
+    <div class="logo"><img
+
+      src="assets/img/logo.png"
+      alt="logo">
+    </div>
+    <h2 class="title">Cinema Store</h2>
+  </div>
+    <form id="searchForm">
+      <input type="text" name="search" placeholder="search movie here" #searchInput
+             [ngModel]="searchInput.value | movieTitle"
+             (input)='changed(searchInput.value)'>
+    </form>
+</header>

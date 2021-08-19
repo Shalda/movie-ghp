@@ -1,0 +1,13 @@
+<div class="movie_card_container" (click)="onClose()">
+  <div class="movie_card" click-stop-propagation>
+    <div class="movie_card_title">{{editedMovie.Title}}</div>
+    <div class="movie_card_img"><img [src]="editedMovie.Poster" alt="movie poster" onerror="this.style.display='none'"></div>
+    <div class="movie_card_year">Year: {{editedMovie.Year}}</div>
+    <div class="movie_card_runtime">Runtime: {{editedMovie.Runtime}}</div>
+    <div class="movie_card_genre">Genre: {{editedMovie.Genre}}</div>
+    <div class="movie_card_rating">IMDB Rating: {{editedMovie.imdbRating}}</div>
+    <div class="movie_card_actors">{{editedMovie.Actors}}</div>
+    <div class="movie_card_director">{{editedMovie.Director}}</div>
+    <div class="movie_card_description">{{editedMovie.Plot}}</div>
+  </div>
+</div>

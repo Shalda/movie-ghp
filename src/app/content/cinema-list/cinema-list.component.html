@@ -1,0 +1,24 @@
+<div class="list_wrapper container" *ngIf="!isLoading; else spinnerBlock">
+<button class="add_button" type="submit" (click)="mode = 'add'">Add New</button>
+  <div id="movie-box" class="movie-box"
+       *ngFor="let m of movies">
+    <div id="movie_text" class="movie_text" (click)="onChangeMode('card'); editedMovie = m">
+        <button click-stop-propagation (click)="onChangeMode('edit'); editedMovie = m">Edit</button>
+        <button (click)="removeMovie(m.imdbID)">Remove</button>
+    </div>
+    <img [src]="m.Poster"  [alt]="m.Title + ' poster'" onerror="this.style.display='none'">
+  </div>
+</div>
+<mat-paginator *ngIf="!isLoading"
+               [length]='paginationData.totalMovies'
+               [pageSize]='paginationData.moviesPerPage'
+               [pageSizeOptions]='paginationData.pageSizeOptions'
+               [pageIndex]="paginationData.currentPage"
+               (page)='onChangePage($event)'
+></mat-paginator>
+<ng-template #spinnerBlock>
+  <mat-spinner class="loader"></mat-spinner>
+</ng-template>
+<app-movie-form [editedMovie]="editedMovie"  [mode]="mode" (closeModal)="mode = $event" *ngIf="mode ==='edit' || mode ==='add'"></app-movie-form>
+<app-movie-card [editedMovie]="editedMovie" (closeModal)="mode = $event" *ngIf="mode ==='card'"></app-movie-card>
+

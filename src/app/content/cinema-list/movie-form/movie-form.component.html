@@ -1,0 +1,92 @@
+<div class="add_movie_container" (click)="onClose()"></div>
+<form class="movie_form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form_field">
+        <label for="add_movie_title">Title</label>
+        <input type="text" formControlName="title" id="add_movie_title" />
+        <div *ngIf="
+      form.get('title')?.invalid && formSubmitted
+    " class="alert alert-danger">
+            <small *ngIf="form.get('title')?.errors?.required">
+      Title is required.
+    </small>
+          <small *ngIf="movieExists">
+            Movie with this Title already exists.
+          </small>
+        </div>
+    </div>
+    <div class="form_field">
+        <label for="add_movie_genre">Genre</label>
+        <input type="text" formControlName="genre" id="add_movie_genre" />
+        <div *ngIf="
+      form.get('genre')?.invalid && formSubmitted
+    " class="alert alert-danger">
+            <small *ngIf="form.get('genre')?.errors?.required">
+      Genre is required.
+    </small>
+            <small *ngIf="form.get('genre')?.errors?.pattern">
+      Only English characters can be entered.
+    </small>
+        </div>
+    </div>
+    <div class="form_field">
+        <label for="add_movie_year">Year</label>
+        <input type="number" formControlName="year" id="add_movie_year" />
+        <div *ngIf="
+      form.get('year')?.invalid && formSubmitted
+    " class="alert alert-danger">
+            <small *ngIf="form.get('year')?.errors?.required">
+      Year is required.
+    </small>
+            <small *ngIf="form.get('year')?.errors?.pattern">
+      Enter year in format: YYYY. Example: 1999.
+    </small>
+        </div>
+    </div>
+    <div class="form_field">
+        <label for="add_movie_year">Director</label>
+        <input type="text" formControlName="director" id="add_movie_director" />
+        <div *ngIf="
+      form.get('director')?.invalid && formSubmitted
+    " class="alert alert-danger">
+            <small *ngIf="form.get('director')?.errors?.required">
+      Director name is required.
+    </small>
+            <small *ngIf="form.get('director')?.errors?.pattern">
+      Only English characters can be entered.
+    </small>
+        </div>
+    </div>
+    <div class="form_field">
+        <label for="add_movie_year">Runtime</label>
+        <input type="number" formControlName="runtime" id="add_movie_runtime" placeholder="minutes" />
+        <div *ngIf="
+      form.get('runtime')?.invalid && formSubmitted
+    " class="alert alert-danger">
+            <small *ngIf="form.get('runtime')?.errors?.required">
+      Runtime is required.
+    </small>
+            <small *ngIf="form.get('runtime')?.errors?.pattern">
+      Please enter runtime in minutes format. Example: 90.
+    </small>
+        </div>
+    </div>
+    <div class="form_field">
+        <label for="add_movie_poster">Poster</label>
+        <input type="text" formControlName="poster" id="add_movie_poster" placeholder="add url" />
+        <div *ngIf="
+      form.get('poster')?.invalid && formSubmitted
+    " class="alert alert-danger">
+            <small *ngIf="form.get('poster')?.errors?.required">
+      Poster url is required.
+    </small>
+            <small *ngIf="form.get('poster')?.errors?.pattern">
+      Enter url in correct format. Example: www.example.com or
+      https://www.example.com
+    </small>
+        </div>
+    </div>
+    <div class="form_btn_container"><button class="form_btn" type="submit" [disabled]="!form.valid && formSubmitted">
+      {{mode === 'edit'? "Save Movie" : "Add Movie"}}</button>
+        <button class="form_btn" (click)="onClose()">Cancel</button></div>
+
+</form>
